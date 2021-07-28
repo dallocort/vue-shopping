@@ -1,10 +1,15 @@
 <template>
     <section id="removeGroup">
-        <PickGoods :arrayGroup="arrayGroup" :blocked="true" @selected-group="selectedGroup=$event"></PickGoods>
+        <PickGoods :arrayGroup="arrayGroup"
+                   :blocked="true"
+                   @selected-group="selectedGroup=$event"></PickGoods>
         <p v-if="errorMessage">{{ errorMessage }}</p>
         <br/>
-        <button v-if="buttonLabel" type="button" @click="removeGroup">{{ buttonLabel }}</button>
-        <p v-else>SELECT GROUP OF GOODS!</p></section>
+        <button v-if="buttonLabel" type="button" @click="removeGroup">
+            {{ buttonLabel }}
+        </button>
+        <p v-else>SELECT GROUP OF GOODS!</p>
+    </section>
 </template>
 
 <script>
@@ -17,14 +22,13 @@ export default {
     emits: ['remove-group'],
     data() {
         return {
-            errorMessage: '',
-            buttonLabel: '',
-            selectedGroup: ''
+            errorMessage: '', buttonLabel: '', selectedGroup: ''
         };
     },
     methods: {
         removeGroup() {
-            if (this.arrayGoods.find(el => el.group === this.selectedGroup) === undefined) {
+            if (this.arrayGoods.find(
+                el => el.group === this.selectedGroup) === undefined) {
                 this.$emit('remove-group', this.selectedGroup);
                 this.errorMessage = '';
                 this.buttonLabel = '';

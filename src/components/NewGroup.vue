@@ -1,7 +1,10 @@
 <template>
     <section id="newGroup">
         <label for="addNewGroup"></label>
-        <input id="addNewGroup" v-model.trim="newGroupValue" type="text" @keydown.enter="addNewGroup"/>
+        <input id="addNewGroup"
+               v-model.trim="newGroupValue"
+               type="text"
+               @keydown.enter="addNewGroup"/>
         <button @click="addNewGroup">ADD NEW GROUP</button>
         <article>{{ errorMessage }}</article>
     </section>
@@ -14,8 +17,7 @@ export default {
     emits: ['add-new-group'],
     data() {
         return {
-            errorMessage: '',
-            newGroupValue: ''
+            errorMessage: '', newGroupValue: ''
         };
     },
     methods: {
@@ -28,9 +30,13 @@ export default {
                 this.errorMessage = '';
                 this.newGroupValue = '';
             }
-        },
-        validate() {
-            return this.newGroupValue === '' || this.arrayGoods.find(el => el.value === this.newGroupValue.toLowerCase()) !== undefined || this.arrayGoods.find(el => el.group === this.newGroupValue.toLowerCase()) !== undefined || this.arrayGoods.find(el => el.name === this.newGroupValue.toLowerCase()) !== undefined || this.arrayGroup.find(el => el.name === this.newGroupValue.toLowerCase()) !== undefined || this.arrayGroup.find(el => el.value === this.newGroupValue.toLowerCase()) !== undefined;
+        }, validate() {
+            return this.newGroupValue === '' || this.arrayGoods.find(
+                el => el.value === this.newGroupValue.toLowerCase()) !== undefined || this.arrayGoods.find(
+                el => el.group === this.newGroupValue.toLowerCase()) !== undefined || this.arrayGoods.find(
+                el => el.name === this.newGroupValue.toLowerCase()) !== undefined || this.arrayGroup.find(
+                el => el.name === this.newGroupValue.toLowerCase()) !== undefined || this.arrayGroup.find(
+                el => el.value === this.newGroupValue.toLowerCase()) !== undefined;
         }
     }
 };

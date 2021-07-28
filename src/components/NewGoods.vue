@@ -1,10 +1,17 @@
 <template>
     <section id="newGoods">
-        <PickGoods :arrayGroup="arrayGroup" :blocked="true" @selected-group="selectedGroup=$event"></PickGoods>
+        <PickGoods :arrayGroup="arrayGroup"
+                   :blocked="true"
+                   @selected-group="selectedGroup=$event"></PickGoods>
         <label for="good">Enter Good to add:</label>
-        <input id="good" v-model.trim="newGoodToAdd" type="text" @keydown.enter="addNewGood"/>
+        <input id="good"
+               v-model.trim="newGoodToAdd"
+               type="text"
+               @keydown.enter="addNewGood"/>
         <br/>
-        <button v-if="buttonLabel" type="button" @click="addNewGood">{{ buttonLabel }}</button>
+        <button v-if="buttonLabel" type="button" @click="addNewGood">
+            {{ buttonLabel }}
+        </button>
         <p v-else>SELECT GROUP OF GOODS!</p>
         <article v-if="errorMessage">{{ errorMessage }}</article>
     </section>
@@ -39,9 +46,13 @@ export default {
                 this.errorMessage = '';
             }
             this.newGoodToAdd = '';
-        },
-        validate() {
-            return this.newGoodToAdd === '' || this.arrayGoods.find(el => el.value === this.newGoodToAdd.toLowerCase()) !== undefined || this.arrayGoods.find(el => el.group === this.newGoodToAdd.toLowerCase()) !== undefined || this.arrayGoods.find(el => el.name === this.newGoodToAdd.toLowerCase()) !== undefined || this.arrayGroup.find(el => el.name === this.newGoodToAdd.toLowerCase()) !== undefined || this.arrayGroup.find(el => el.value === this.newGoodToAdd.toLowerCase()) !== undefined;
+        }, validate() {
+            return this.newGoodToAdd === '' || this.arrayGoods.find(
+                el => el.value === this.newGoodToAdd.toLowerCase()) !== undefined || this.arrayGoods.find(
+                el => el.group === this.newGoodToAdd.toLowerCase()) !== undefined || this.arrayGoods.find(
+                el => el.name === this.newGoodToAdd.toLowerCase()) !== undefined || this.arrayGroup.find(
+                el => el.name === this.newGoodToAdd.toLowerCase()) !== undefined || this.arrayGroup.find(
+                el => el.value === this.newGoodToAdd.toLowerCase()) !== undefined;
         }
     },
     watch: {

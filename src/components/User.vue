@@ -1,9 +1,13 @@
 <template>
     <section id="user">
-        <PickGoods :arrayGoods="arrayGoods" :arrayGroup="arrayGroup" :blocked="blocked" :pickedGoods="pickedGoods"
+        <PickGoods :arrayGoods="arrayGoods"
+                   :arrayGroup="arrayGroup"
+                   :blocked="blocked"
+                   :pickedGoods="pickedGoods"
                    @error-message="$emit('error-message',$event)"
                    @add-to-picked-goods="$emit('add-to-picked-goods', $event);"></PickGoods>
-        <ShowGoods :errorMessage="errorMessage" :pickedGoods="pickedGoods"
+        <ShowGoods :errorMessage="errorMessage"
+                   :pickedGoods="pickedGoods"
                    @delete-picked-good="$emit('delete-picked-good',$event)"></ShowGoods>
     </section>
 
@@ -18,8 +22,7 @@ export default {
     props: ['arrayGroup', 'arrayGoods', 'pickedGoods', "errorMessage"],
     emits: ['add-to-picked-goods', 'delete-picked-good', 'error-message'],
     components: {
-        ShowGoods,
-        PickGoods
+        ShowGoods, PickGoods
     },
     data() {
         return {blocked: false};

@@ -1,29 +1,42 @@
 <template>
     <section id="radioButtons">
-        <input id="choice1" v-model="selectedRadio" name="izbor" type="radio" value="newGroup">
+        <input id="choice1"
+               v-model="selectedRadio"
+               name="izbor"
+               type="radio"
+               value="newGroup">
         <label for="choice1">ADD NEW GROUP</label>
         <br/>
-        <input id="choice2" v-model="selectedRadio" name="izbor" type="radio" value="newGoods">
+        <input id="choice2"
+               v-model="selectedRadio"
+               name="izbor"
+               type="radio"
+               value="newGoods">
         <label for="choice2">ADD NEW GOODS</label>
         <br/>
-        <input id="choice3" v-model="selectedRadio" name="izbor" type="radio" value="removeGroup">
+        <input id="choice3"
+               v-model="selectedRadio"
+               name="izbor"
+               type="radio"
+               value="removeGroup">
         <label for="choice3">REMOVE GROUP</label>
         <br/>
-        <input id="choice4" v-model="selectedRadio" name="izbor" type="radio" value="removeGoods">
+        <input id="choice4"
+               v-model="selectedRadio"
+               name="izbor"
+               type="radio"
+               value="removeGoods">
         <label for="choice4">REMOVE GOODS</label>
     </section>
 </template>
 
 <script>
 export default {
-    name: "SelectionOfAction",
-    emits: ['select-radio'],
-    data() {
+    name: "SelectionOfAction", emits: ['select-radio'], data() {
         return {
             selectedRadio: ''
         };
-    },
-    watch: {
+    }, watch: {
         selectedRadio(newValue) {
             this.$emit('select-radio', newValue);
         }

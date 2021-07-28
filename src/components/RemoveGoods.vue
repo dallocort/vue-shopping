@@ -1,6 +1,8 @@
 <template>
     <section id="removeGoods">
-        <PickGoods :arrayGroup="arrayGroup" :blocked="true" @selected-group="selectedGroup=$event"></PickGoods>
+        <PickGoods :arrayGroup="arrayGroup"
+                   :blocked="true"
+                   @selected-group="selectedGroup=$event"></PickGoods>
         <p v-if="errorMessage">{{ errorMessage }}</p>
         <br/>
         <template v-if="selectedGroup">
@@ -9,7 +11,10 @@
                @click="$emit('remove-goods',good)">
                 <span style="color:darkgreen">{{ `(${good.group})` }} -</span>
                 {{ good.name }}
-                <button @click="$emit('remove-goods',good.value)">DELETE {{ good.name }}</button>
+                <button @click="$emit('remove-goods',good.value)">DELETE
+                                                                  {{ good.name
+                                                                  }}
+                </button>
             </p>
         </template>
         <p v-else>SELECT GROUP OF GOODS!</p>
@@ -26,9 +31,7 @@ export default {
     emits: ['remove-goods'],
     data() {
         return {
-            errorMessage: '',
-            buttonLabel: '',
-            selectedGroup: ''
+            errorMessage: '', buttonLabel: '', selectedGroup: ''
         };
     },
     watch: {}
