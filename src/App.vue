@@ -23,81 +23,145 @@ import Admin from "@/components/Admin.vue";
 import User from "@/components/User.vue";
 
 export default {
-    name: 'App', components: {
-        Admin, User
-    }, emits: [], data() {
+    name: 'App',
+    components: {
+        Admin,
+        User
+    },
+    emits: [],
+    data() {
         return {
-            pickedGoods: [], errorMessage: '', arrayGroup: [{
-                value: 'fruits', name: 'fresh fruits'
+            pickedGoods: [],
+            errorMessage: '',
+            arrayGroup: [{
+                value: 'fruits',
+                name: 'fresh fruits'
             }, {
-                value: 'drinks', name: 'drinks'
+                value: 'drinks',
+                name: 'drinks'
             }, {
-                value: 'coffee', name: 'coffee'
+                value: 'coffee',
+                name: 'coffee'
             }, {
-                value: 'appliances', name: 'home appliances'
-            }], arrayGoods: [{
-                group: 'fruits', value: 'avocado', name: 'avocado'
+                value: 'appliances',
+                name: 'home appliances'
+            }],
+            arrayGoods: [{
+                group: 'fruits',
+                value: 'avocado',
+                name: 'avocado'
             }, {
-                group: 'fruits', value: 'banana', name: 'banana'
+                group: 'fruits',
+                value: 'banana',
+                name: 'banana'
             }, {
-                group: 'fruits', value: 'blackberries', name: 'blackberries'
+                group: 'fruits',
+                value: 'blackberries',
+                name: 'blackberries'
             }, {
-                group: 'fruits', value: 'mango', name: 'mango'
+                group: 'fruits',
+                value: 'mango',
+                name: 'mango'
             }, {
-                group: 'fruits', value: 'grožđe', name: 'grožđe'
+                group: 'fruits',
+                value: 'grožđe',
+                name: 'grožđe'
             }, {
-                group: 'fruits', value: 'kumkvata', name: 'kumkvata'
+                group: 'fruits',
+                value: 'kumkvata',
+                name: 'kumkvata'
             }, {
-                group: 'fruits', value: 'breskva', name: 'breskva'
+                group: 'fruits',
+                value: 'breskva',
+                name: 'breskva'
             }, {
-                group: 'drinks', value: 'rakija', name: 'rakija'
+                group: 'drinks',
+                value: 'rakija',
+                name: 'rakija'
             }, {
-                group: 'drinks', value: 'orange', name: 'orange soda'
+                group: 'drinks',
+                value: 'orange',
+                name: 'orange soda'
             }, {
-                group: 'drinks', value: 'milk', name: 'fresh milk'
+                group: 'drinks',
+                value: 'milk',
+                name: 'fresh milk'
             }, {
-                group: 'drinks', value: 'paulaner', name: 'paulaner'
+                group: 'drinks',
+                value: 'paulaner',
+                name: 'paulaner'
             }, {
-                group: 'drinks', value: 'valjevsko', name: 'valjevsko'
+                group: 'drinks',
+                value: 'valjevsko',
+                name: 'valjevsko'
             }, {
-                group: 'drinks', value: 'tuborg', name: 'tuborg'
+                group: 'drinks',
+                value: 'tuborg',
+                name: 'tuborg'
             }, {
-                group: 'coffee', value: 'turkish', name: 'turkish coffee'
+                group: 'coffee',
+                value: 'turkish',
+                name: 'turkish coffee'
             }, {
-                group: 'coffee', value: 'cappuccino', name: 'cappuccino'
+                group: 'coffee',
+                value: 'cappuccino',
+                name: 'cappuccino'
             }, {
-                group: 'coffee', value: 'latte', name: 'latte'
+                group: 'coffee',
+                value: 'latte',
+                name: 'latte'
             }, {
-                group: 'coffee', value: 'grand', name: 'grand'
+                group: 'coffee',
+                value: 'grand',
+                name: 'grand'
             }, {
-                group: 'coffee', value: 'cappuccino', name: 'cappuccino'
+                group: 'coffee',
+                value: 'cappuccino',
+                name: 'cappuccino'
             }, {
-                group: 'coffee', value: 'espresso', name: 'espresso'
+                group: 'coffee',
+                value: 'espresso',
+                name: 'espresso'
             }, {
-                group: 'coffee', value: 'vacuum', name: 'vacuum coffee'
+                group: 'coffee',
+                value: 'vacuum',
+                name: 'vacuum coffee'
             }, {
-                group: 'appliances', value: 'dishwasher', name: 'dishwasher'
+                group: 'appliances',
+                value: 'dishwasher',
+                name: 'dishwasher'
             }, {
-                group: 'appliances', value: 'microwaves', name: 'microwaves'
+                group: 'appliances',
+                value: 'microwaves',
+                name: 'microwaves'
             }, {
-                group: 'appliances', value: 'ranges', name: 'ranges'
+                group: 'appliances',
+                value: 'ranges',
+                name: 'ranges'
             }]
         };
-    }, methods: {
+    },
+    methods: {
         addToPickedGoods(newValue) {
             this.pickedGoods.push(newValue);
-        }, deletePickedGood(good) {
+        },
+        deletePickedGood(good) {
             this.pickedGoods = this.pickedGoods.filter((el) => el !== good);
-        }, addNewGroup(newGroupToAdd) {
+        },
+        addNewGroup(newGroupToAdd) {
             this.arrayGroup.push({
-                value: newGroupToAdd, name: newGroupToAdd
+                value: newGroupToAdd,
+                name: newGroupToAdd
             });
-        }, addNewGood(newGoodToAdd) {
+        },
+        addNewGood(newGoodToAdd) {
             this.arrayGoods.push(newGoodToAdd);
-        }, removeGroup(groupToRemove) {
+        },
+        removeGroup(groupToRemove) {
             this.arrayGroup = this.arrayGroup.filter(
                 el => el.value !== groupToRemove);
-        }, removeGoods(goodToRemove) {
+        },
+        removeGoods(goodToRemove) {
             this.arrayGoods = this.arrayGoods.filter(
                 el => el.value !== goodToRemove);
             this.pickedGoods = this.pickedGoods.filter(

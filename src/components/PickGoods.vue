@@ -1,7 +1,7 @@
 <template>
     <section id="pick">
         <select id="group" v-model="selectedGroup" name="group">
-            <option disabled hidden value="none">select group:</option>
+            <option hidden value="none">select group:</option>
             <option v-for="(group,i) in arrayGroup"
                     :key="i"
                     :value="group.value">{{ group.name }}
@@ -33,7 +33,8 @@ export default {
     emits: ['add-to-picked-goods', 'error-message', 'selected-group'],
     data() {
         return {
-            selectedGood: '', selectedGroup: 'none'
+            selectedGood: '',
+            selectedGroup: 'none'
         };
     },
     methods: {},
@@ -42,7 +43,8 @@ export default {
             if (this.blocked) {
                 this.$emit('selected-group', newValue);
             }
-        }, selectedGood(newValue) {
+        },
+        selectedGood(newValue) {
             if (!this.blocked) {
                 if (this.pickedGoods.find(
                     (el) => el === newValue) !== undefined) {
@@ -51,6 +53,14 @@ export default {
                 } else {
                     this.$emit('error-message', '');
                     this.$emit('add-to-picked-goods', newValue);
+                }
+            }
+        },
+        arrayGroup: {
+            deep: true,
+            handler() {
+                if(this.arrayGroup.find(el=>el.value===this.selectedGroup)===undefined) {
+                    this.selectedGroup = 'none';
                 }
             }
         }

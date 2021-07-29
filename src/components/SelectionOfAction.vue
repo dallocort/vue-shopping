@@ -32,11 +32,14 @@
 
 <script>
 export default {
-    name: "SelectionOfAction", emits: ['select-radio'], data() {
+    name: "SelectionOfAction",
+    emits: ['select-radio'],
+    data() {
         return {
             selectedRadio: ''
         };
-    }, watch: {
+    },
+    watch: {
         selectedRadio(newValue) {
             this.$emit('select-radio', newValue);
         }
