@@ -31,7 +31,9 @@ export default {
     emits: ['remove-goods'],
     data() {
         return {
-            errorMessage: '', buttonLabel: '', selectedGroup: ''
+            errorMessage: '',
+            buttonLabel: '',
+            selectedGroup: ''
         };
     },
     watch: {}
